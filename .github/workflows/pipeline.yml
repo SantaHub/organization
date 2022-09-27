@@ -8,7 +8,7 @@ on:
 
 jobs:
   printMine:
-    name: call production
+    name: Print repo secret
     runs-on: ubuntu-latest
     steps:
       - name: Print Secret
