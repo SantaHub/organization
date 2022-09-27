@@ -7,9 +7,18 @@ on:
     types: [ opened, synchronize, reopened, edited, ready_for_review ]
 
 jobs:
-  print-main-secret:
-    name: Build and Test
+  printMine:
+    name: call production
     runs-on: ubuntu-latest
     steps:
-      - name: Main Print
-        run: echo ${{ secrets.MY_NUMBER }}*10
+      - name: Print Secret
+        run: echo ${{ secrets.MY_NUMBER }}*11
+
+  callProduction:    
+    name: call production
+    runs-on: ubuntu-latest
+    environment: 
+      name: Production
+    steps:
+      - name: Call Deploy
+        uses: SantaHub/organization/.github/workflows/blank.yml@main
