@@ -15,27 +15,33 @@ jobs:
         run: echo ${{ secrets.MY_NUMBER }}*11
 
   prod-secret:
-    name: Printing Secret
+    name: Prod Secret
     runs-on: ubuntu-latest
     environment: Production
     steps:
       - name: Print Secret
-        run: echo ${{ secrets.MY_NUMBER }}*11
+        run: echo $(( ${{ secrets.MY_NUMBER }}*11))
+      - name : Print Stage
+        run : echo "Production"
   
   dev-secret:
-    name: Printing Secret
+    name: Dev Secret
     runs-on: ubuntu-latest
     environment: Dev
     steps:
       - name: Print Secret
-        run: echo ${{ secrets.MY_NUMBER }}*11
+        run: echo $(( ${{ secrets.MY_NUMBER }}*11 ))
+      - name : Print Stage
+        run : echo "Dev"
 
   test-secret:
-    name: Printing Secret
+    name: Test Secret
     runs-on: ubuntu-latest
     environment: Test
     steps:
       - name: Print Secret
-        run: echo ${{ secrets.MY_NUMBER }}*11
+        run: echo  $(( ${{ secrets.MY_NUMBER }}*11 ))
       - name: Normal number
-        run: echo 2*2
+        run: echo $(( 2*2 ))
+      - name : Print Stage
+        run : echo "Test"
