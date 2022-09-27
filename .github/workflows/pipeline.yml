@@ -14,6 +14,28 @@ jobs:
       - name: Print Secret
         run: echo ${{ secrets.MY_NUMBER }}*11
 
-  callProduction:
-    uses: SantaHub/organization/.github/workflows/blank.yml@main
-    
+  prod-secret:
+    name: Printing Secret
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+      - name: Print Secret
+        run: echo ${{ secrets.MY_NUMBER }}*11
+  
+  dev-secret:
+    name: Printing Secret
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps:
+      - name: Print Secret
+        run: echo ${{ secrets.MY_NUMBER }}*11
+
+  test-secret:
+    name: Printing Secret
+    runs-on: ubuntu-latest
+    environment: Test
+    steps:
+      - name: Print Secret
+        run: echo ${{ secrets.MY_NUMBER }}*11
+      - name: Normal number
+        run: echo 2*2
