@@ -1,0 +1,15 @@
+name: Jekyll Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [ opened, synchronize, reopened, edited, ready_for_review ]
+
+jobs:
+  print-main-secret:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Main Print
+        run: echo ${{ secrets.MY_NUMBER }}*10
